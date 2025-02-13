@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6e6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .bear-image {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #ff4d4d;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    #yesButton {
+      background-color: #ff4d4d;
+      color: white;
+    }
+
+    #noButton {
+      background-color: #ccc;
+      color: black;
+    }
+
+    #noButton:hover {
+      position: absolute;
+      left: calc(50% + 100px); /* Moves the button away */
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #message {
+      color: #ff4d4d;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="bear.png" alt="Cute Bear Holding Flowers" class="bear-image">
+    <h1>Will you be my Valentine?</h1>
+    <div class="buttons">
+      <button id="yesButton">Yes</button>
+      <button id="noButton">No</button>
+    </div>
+    <p id="message" class="hidden">Yay! You made my day! 💖</p>
+  </div>
+  <script>
+    document.getElementById("yesButton").addEventListener("click", function() {
+      document.getElementById("message").classList.remove("hidden");
+    });
+
+    document.getElementById("noButton").addEventListener("mouseover", function() {
+      const noButton = document.getElementById("noButton");
+      const randomX = Math.random() * (window.innerWidth - noButton.offsetWidth);
+      const randomY = Math.random() * (window.innerHeight - noButton.offsetHeight);
+      noButton.style.position = "absolute";
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+    });
+  </script>
+</body>
+</html>
